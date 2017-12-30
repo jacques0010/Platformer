@@ -18,6 +18,22 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="app\Logic\Updater.cpp" />
+    <ClCompile Include="app\Math\Matrix.cpp" />
+    <ClCompile Include="app\Math\Vector.cpp" />
+    <ClCompile Include="app\Render\Window.cpp" />
+    <ClCompile Include="app\Render\Renderer.cpp" />
+    <ClCompile Include="app\main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="app\Logic\Updater.h" />
+    <ClInclude Include="app\Math\MathConst.h" />
+    <ClInclude Include="app\Math\Matrix.h" />
+    <ClInclude Include="app\Math\Vector.h" />
+    <ClInclude Include="app\Render\Renderer.h" />
+    <ClInclude Include="app\Render\Window.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{0C987FFD-D552-4A8C-8CF3-9619E1C4294C}</ProjectGuid>
@@ -75,7 +91,13 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(SolutionDir)dependencies\glew-2.1.0\include;$(SolutionDir)dependencies\glfw-3.2.1.bin.WIN32\include</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>GLEW_STATIC;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>$(SolutionDir)dependencies\glfw-3.2.1.bin.WIN32\lib-vc2015;$(SolutionDir)dependencies\glew-2.1.0\lib\Release\Win32;</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;glfw3.lib;glew32s.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -91,10 +113,14 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(SolutionDir)dependencies\glew-2.1.0\include;$(SolutionDir)dependencies\glfw-3.2.1.bin.WIN32\include</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>GLEW_STATIC;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>$(SolutionDir)dependencies\glfw-3.2.1.bin.WIN32\lib-vc2015;$(SolutionDir)dependencies\glew-2.1.0\lib\Release\Win32;</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;glfw3.lib;glew32s.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -110,8 +136,6 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
